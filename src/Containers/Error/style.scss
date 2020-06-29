@@ -1,0 +1,16 @@
+@import "src/shared/style.scss";
+
+#page-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 150px 0 100px;
+
+  font-size: 24px;
+  color: $darkgray;
+}
+
+.lightsoff #page-error {
+  color: $lightgray;
+}

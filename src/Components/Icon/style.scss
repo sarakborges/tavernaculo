@@ -1,0 +1,43 @@
+@import "src/shared/style.scss";
+
+.icon {
+  width: $iconsize;
+  height: $iconsize;
+  overflow: hidden;
+
+  font-family: $iconfont;
+  text-align: center;
+  font-size: $iconsize * 0.8;
+  line-height: $iconsize;
+
+  border-radius: 3px;
+  transition: background-color 0.3s;
+
+  &.button:hover {
+    background-color: rgba($black, 0.1);
+  }
+
+  &.smallicon {
+    width: $iconsize * 0.75;
+    height: $iconsize * 0.75;
+
+    font-size: $iconsize * 0.75 * 0.8;
+    line-height: $iconsize * 0.75;
+  }
+
+  &.bigicon {
+    width: $iconsize * 5;
+    height: $iconsize * 5;
+
+    font-size: $iconsize * 5 * 0.8;
+    line-height: $iconsize * 5;
+  }
+}
+
+.lightsoff {
+  .icon {
+    &.button:hover {
+      background-color: rgba($white, 0.1);
+    }
+  }
+}
