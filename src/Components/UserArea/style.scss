@@ -1,0 +1,55 @@
+@import "src/shared/style.scss";
+
+.user-space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 5px 15px 10px;
+
+  .user-avatar {
+    width: 50px;
+    height: 50px;
+
+    background-position: center;
+    background-size: cover;
+    background-color: $dark;
+    border-radius: 100%;
+    box-shadow: 0 0 3px rgba($black, 0.3);
+  }
+
+  .user-text {
+    width: calc(100% - 50px - #{$smalliconsize});
+    padding: 0 15px;
+
+    .user-name {
+      width: 100%;
+      overflow: hidden;
+
+      font-size: 16px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .user-link {
+      a {
+        font-size: 12px;
+        color: $maincolor;
+      }
+    }
+  }
+
+  .user-more {
+    width: $smalliconsize;
+  }
+}
+
+.lightsoff {
+  .user-space {
+    .user-avatar {
+      background-color: $white;
+      box-shadow: 0 0 3px rgba($white, 0.6);
+    }
+  }
+}

@@ -1,7 +1,9 @@
 @import "src/shared/style.scss";
 
 .button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: none;
   background: none;
@@ -12,6 +14,14 @@
   color: $black;
 
   cursor: pointer;
+
+  transition: color 0.3s, background-color 0.3s;
+
+  &.round {
+    width: 100%;
+
+    border-radius: 20px;
+  }
 }
 
 .lightsoff {
