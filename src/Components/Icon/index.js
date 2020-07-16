@@ -4,8 +4,8 @@ import Button from "Components/Button";
 
 import "./style.scss";
 
-const Icon = ({ as, value, big, small, onClick }) => {
-  const classes = ["icon"];
+const Icon = ({ as, value, big, small, onClick, classes = [] }) => {
+  classes.push("icon");
 
   if (big) {
     classes.push("bigicon");

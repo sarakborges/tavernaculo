@@ -4,14 +4,19 @@ const UserContext = createContext();
 const UserDispatchContext = createContext();
 
 const INITIAL_STATE = {
-  isBarExpanded: true,
+  isLeftBarExpanded: true,
+  isRightBarExpanded: true,
   areLightsOff: false,
 };
 
 export const userReducer = (state, { type, data }) => {
   switch (type) {
-    case "SET_IS_BAR_EXPANDED": {
-      return { ...state, isBarExpanded: data };
+    case "SET_IS_LEFTBAR_EXPANDED": {
+      return { ...state, isLeftBarExpanded: data };
+    }
+
+    case "SET_IS_RIGHTBAR_EXPANDED": {
+      return { ...state, isRightBarExpanded: data };
     }
 
     case "SET_ARE_LIGHTS_OFF": {

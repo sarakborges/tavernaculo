@@ -11,23 +11,23 @@ import { UserContext } from "Contexts/User";
 import "./style.scss";
 
 const Leftbar = () => {
-  const { isBarExpanded } = useContext(UserContext);
+  const { isLeftBarExpanded } = useContext(UserContext);
 
   return (
-    <div id="leftbar" className={!isBarExpanded ? "leftbar_hidden" : ""}>
-      <div className="leftbar-top">
+    <div id="leftbar" className={!isLeftBarExpanded ? "sidebar_hidden" : ""}>
+      <div className="sidebar-top">
         <UserArea />
 
         <Button round classes={["new-group"]}>
           <Icon value="add" small />
-          <span>Criar nova mesa</span>
+          <span>Criar novo grupo</span>
           <span></span>
         </Button>
 
         <Schedule />
       </div>
 
-      <div className="leftbar-bottom">
+      <div className="sidebar-bottom">
         <ToggleTheme />
       </div>
     </div>

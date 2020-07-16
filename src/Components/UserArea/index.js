@@ -8,7 +8,7 @@ const UserArea = () => {
   const user = {
     id: 1,
     name: `Yogg'Sara`,
-    avatar: `https://cdn.discordapp.com/avatars/183653516429099009/205b1d4b0c570eb7e983fe98252bbf21.png?size=2048`,
+    avatar: `https://cdn.discordapp.com/attachments/705087703200432219/714868759596367932/nidalee.png`,
   };
 
   return (

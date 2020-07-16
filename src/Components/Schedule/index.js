@@ -8,7 +8,7 @@ import { UserContext, UserDispatchContext } from "Contexts/User";
 import "./style.scss";
 
 const Schedule = () => {
-  const { isBarExpanded } = useContext(UserContext);
+  const { isLeftBarExpanded } = useContext(UserContext);
   const userReducer = useContext(UserDispatchContext);
 
   const [scheduleDetails, setScheduleDetails] = useState(undefined);
@@ -25,39 +25,39 @@ const Schedule = () => {
 
   return (
     <div id="schedule">
-      <div className="leftbar-title">
-        <div className="title-text">Suas próximas mesas</div>
+      <div className="sidebar-title">
+        <div className="title-text">Próximos jogos</div>
 
-        {!isBarExpanded && (
+        {!isLeftBarExpanded && (
           <Icon
             small
             as="button"
             value="subdirectory_arrow_right"
             onClick={() => {
-              userReducer({ type: "SET_IS_BAR_EXPANDED", data: true });
+              userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: true });
             }}
           />
         )}
-        {isBarExpanded && (
+        {isLeftBarExpanded && (
           <Icon
             small
             as="button"
             value="subdirectory_arrow_left"
             onClick={() => {
-              userReducer({ type: "SET_IS_BAR_EXPANDED", data: false });
+              userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: false });
             }}
           />
         )}
       </div>
 
       <div className="schedule-list">
-        {!isBarExpanded && (
+        {!isLeftBarExpanded && (
           <div className="schedule-item">
             <Icon small value="date_range" />
           </div>
         )}
 
-        {!isBarExpanded &&
+        {!isLeftBarExpanded &&
           schedule.map((scheduleItem, scheduleKey) => {
             return (
               <div className="schedule-item" key={scheduleKey}>
