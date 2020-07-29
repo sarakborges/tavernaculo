@@ -1,0 +1,44 @@
+@import "src/shared/style.scss";
+
+.social-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5px 10px 15px;
+
+  .social-menu-button {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 100%;
+    background: rgba($gray, 0.1);
+
+    color: $maincolor;
+
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    &.active {
+      background: $maincolor;
+      color: $black;
+
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.social-find {
+  padding: 0 10px;
+}
+
+.lightsoff {
+  .social-menu {
+    .social-menu-button {
+      &.active {
+        color: $white;
+      }
+    }
+  }
+}

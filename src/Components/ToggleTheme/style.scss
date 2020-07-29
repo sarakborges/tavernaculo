@@ -17,13 +17,8 @@
 
     padding: 3px 10px;
 
-    background: $white;
-
-    font-weight: 700;
-
-    &:hover {
-      background: $lightner;
-    }
+    background: $lightner;
+    color: $maincolor;
   }
 }
 
@@ -32,11 +27,7 @@
     background: $darkner;
 
     .toggle-theme-action {
-      background: $black;
-
-      &:hover {
-        background: $darker;
-      }
+      background: $darker;
     }
   }
 }

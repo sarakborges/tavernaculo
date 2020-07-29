@@ -4,24 +4,24 @@
   display: block;
 
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 10px;
 
   color: $black;
 
-  border: 0 solid transparent;
-  border-width: 2px 0;
-  background: $white;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: $light;
 
   transition: border-color 0.3s;
 
   &:focus {
-    border-bottom-color: $maincolor;
+    border-color: $maincolor;
   }
 }
 
 .lightsoff {
   .input {
-    background: $black;
+    background: $dark;
 
     color: $white;
   }

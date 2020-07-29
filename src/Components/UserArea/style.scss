@@ -13,9 +13,8 @@
 
     background-position: center;
     background-size: cover;
-    background-color: $dark;
+    background-color: $lightner;
     border-radius: 100%;
-    box-shadow: 0 0 3px rgba($black, 0.3);
   }
 
   .user-text {
@@ -47,8 +46,7 @@
 .lightsoff {
   .user-space {
     .user-avatar {
-      background-color: $white;
-      box-shadow: 0 0 3px rgba($white, 0.6);
+      background-color: $darkner;
     }
   }
 }

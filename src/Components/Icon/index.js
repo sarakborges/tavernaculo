@@ -4,23 +4,35 @@ import Button from "Components/Button";
 
 import "./style.scss";
 
-const Icon = ({ as, value, big, small, onClick, classes = [] }) => {
-  classes.push("icon");
+const Icon = ({ value, options }) => {
+  let classes = ["icon"];
 
-  if (big) {
-    classes.push("bigicon");
-  } else if (small) {
-    classes.push("smallicon");
+  if (!!options?.classes) {
+    classes = classes.concat(options?.classes);
+  }
+
+  if (!!options?.big) {
+    classes.push("big");
+  } else if (!!options?.small) {
+    classes.push("small");
+  } else if (!!options?.mini) {
+    classes.push("mini");
   }
 
   return (
     <>
-      {(!as || as === "div") && (
+      {(!options?.as || options?.as === "div") && (
         <div className={classes.join(" ")}>{value}</div>
       )}
 
-      {as === "button" && (
-        <Button classes={classes} onClick={onClick}>
+      {options?.as === "button" && (
+        <Button
+          options={{
+            classes,
+            onClick: options?.onClick,
+            transparent: options?.transparent,
+          }}
+        >
           {value}
         </Button>
       )}

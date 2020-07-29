@@ -42,17 +42,10 @@
 
     background: $maincolor;
 
-    transition: background-color 0.3s, box-shadow 0.3s;
-
-    &:hover {
-      background: rgba($maincolor, 0.7);
-      box-shadow: 0 0 2px 2px rgba($black, 0.2);
-    }
-
     .icon {
       border-radius: 100%;
 
-      background: rgba($black, 0.1);
+      background: rgba($black, 0.125);
     }
   }
 
@@ -85,11 +78,7 @@
 
     .new-group {
       .icon {
-        background: rgba($white, 0.2);
-      }
-
-      &:hover {
-        box-shadow: 0 0 2px 2px rgba($white, 0.4);
+        background: rgba($white, 0.25);
       }
     }
   }

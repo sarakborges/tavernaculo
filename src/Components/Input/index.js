@@ -2,14 +2,18 @@ import React from "react";
 
 import "./style.scss";
 
-const Input = ({ onChange, placeholder, classes = [] }) => {
-  classes.push("input");
+const Input = ({ options }) => {
+  let classes = ["input"];
+
+  if (!!options?.classes) {
+    classes = classes.concat(options?.classes);
+  }
 
   return (
     <input
-      placeholder={placeholder || "Digite aqui"}
+      placeholder={options?.placeholder || "Digite aqui"}
       className={classes.join(" ")}
-      onChange={onChange}
+      onChange={options?.onChange}
     />
   );
 };

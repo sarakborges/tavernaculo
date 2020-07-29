@@ -6,9 +6,9 @@ const Error = () => {
   return (
     <div id="page-error">
       <div>
-        <div className="error-title">página não encontrada</div>
+        <div className="error-title">tl;dr: página não encontrada</div>
         <div className="error-subtitle">
-          <a href="#">tl;dr - voltar para a página inicial</a>
+          <a href="#">voltar para a página inicial</a>
         </div>
 
         <div className="error-message">

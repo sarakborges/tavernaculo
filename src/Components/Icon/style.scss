@@ -12,11 +12,7 @@
 
   border-radius: 3px;
 
-  &.button:hover {
-    background-color: rgba($black, 0.1);
-  }
-
-  &.smallicon {
+  &.small {
     width: $iconsize * 0.75;
     height: $iconsize * 0.75;
 
@@ -24,19 +20,19 @@
     line-height: $iconsize * 0.75;
   }
 
-  &.bigicon {
+  &.mini {
+    width: $iconsize * 0.5;
+    height: $iconsize * 0.5;
+
+    font-size: $iconsize * 0.5 * 0.8;
+    line-height: $iconsize * 0.5;
+  }
+
+  &.big {
     width: $iconsize * 5;
     height: $iconsize * 5;
 
     font-size: $iconsize * 5 * 0.8;
     line-height: $iconsize * 5;
-  }
-}
-
-.lightsoff {
-  .icon {
-    &.button:hover {
-      background-color: rgba($white, 0.1);
-    }
   }
 }

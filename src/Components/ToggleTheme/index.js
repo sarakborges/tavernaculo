@@ -12,13 +12,7 @@ const ToggleTheme = () => {
   const userReducer = useContext(UserDispatchContext);
 
   const toggleTheme = () => {
-    if (areLightsOff) {
-      userReducer({ type: "SET_ARE_LIGHTS_OFF", data: false });
-      document.body.classList.remove("lightsoff");
-    } else {
-      userReducer({ type: "SET_ARE_LIGHTS_OFF", data: true });
-      document.body.classList.add("lightsoff");
-    }
+    userReducer({ type: "SET_ARE_LIGHTS_OFF", data: !areLightsOff });
   };
 
   return (
@@ -28,12 +22,19 @@ const ToggleTheme = () => {
         {areLightsOff && "Entendemos se as trevas não forem para todos..."}
       </div>
 
-      <Button classes={["toggle-theme-action"]} onClick={toggleTheme} round>
+      <Button
+        options={{
+          round: true,
+          classes: ["toggle-theme-action"],
+          onClick: toggleTheme,
+        }}
+        round
+      >
         {!areLightsOff && (
           <>
             <span></span>
             <span>Ativar modo escuro</span>
-            <Icon value="brightness_3" small />
+            <Icon options={{ small: true }} value="brightness_3" />
           </>
         )}
 
@@ -41,7 +42,7 @@ const ToggleTheme = () => {
           <>
             <span></span>
             <span>Ativar o modo chato</span>
-            <Icon value="wb_sunny" small />
+            <Icon options={{ small: true }} value="wb_sunny" />
           </>
         )}
       </Button>

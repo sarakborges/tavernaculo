@@ -30,21 +30,27 @@ const Schedule = () => {
 
         {!isLeftBarExpanded && (
           <Icon
-            small
-            as="button"
             value="subdirectory_arrow_right"
-            onClick={() => {
-              userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: true });
+            options={{
+              small: true,
+              transparent: true,
+              as: "button",
+              onClick: () => {
+                userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: true });
+              },
             }}
           />
         )}
         {isLeftBarExpanded && (
           <Icon
-            small
-            as="button"
             value="subdirectory_arrow_left"
-            onClick={() => {
-              userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: false });
+            options={{
+              small: true,
+              transparent: true,
+              as: "button",
+              onClick: () => {
+                userReducer({ type: "SET_IS_LEFTBAR_EXPANDED", data: false });
+              },
             }}
           />
         )}
@@ -53,7 +59,7 @@ const Schedule = () => {
       <div className="schedule-list">
         {!isLeftBarExpanded && (
           <div className="schedule-item">
-            <Icon small value="date_range" />
+            <Icon options={{ small: true }} value="date_range" />
           </div>
         )}
 
@@ -62,10 +68,12 @@ const Schedule = () => {
             return (
               <div className="schedule-item" key={scheduleKey}>
                 <Button
-                  onClick={() => {
-                    setScheduleDetails((state) =>
-                      state !== scheduleItem.id ? scheduleItem.id : undefined
-                    );
+                  options={{
+                    onClick: () => {
+                      setScheduleDetails((state) =>
+                        state !== scheduleItem.id ? scheduleItem.id : undefined
+                      );
+                    },
                   }}
                 >
                   <div

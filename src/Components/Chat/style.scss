@@ -1,0 +1,79 @@
+@import "src/shared/style.scss";
+
+.chat {
+  display: flex;
+  flex-direction: column;
+
+  height: calc(100vh - 140px);
+
+  .chat-separator {
+    height: 1px;
+    margin: 0 10px 15px;
+
+    background: $light;
+  }
+
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    margin: 0 10px 15px;
+    padding: 0 10px 10px 0;
+    overflow: auto;
+    scrollbar-width: thin;
+
+    .message-item {
+      padding: 7px 7px 7px 10px;
+      max-width: 85%;
+
+      background: $light;
+      border-radius: 8px;
+
+      .message-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .message-time {
+        padding-top: 5px;
+
+        text-align: right;
+        font-size: 12px;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 15px;
+      }
+
+      &.message-from-you {
+        align-self: end;
+
+        background: rgba($maincolor, 0.5);
+      }
+    }
+  }
+
+  .chat-send-message {
+    padding: 5px 10px;
+  }
+}
+
+.lightsoff {
+  .chat {
+    .chat-separator {
+      background: $dark;
+    }
+
+    .chat-messages {
+      .message-item {
+        background: $dark;
+
+        &.message-from-you {
+          background: rgba($maincolor, 0.5);
+        }
+      }
+    }
+  }
+}

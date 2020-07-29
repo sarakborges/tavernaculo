@@ -1,4 +1,4 @@
-import React, { useReducer, createContext } from "react";
+import React, { useEffect, useReducer, createContext } from "react";
 
 const UserContext = createContext();
 const UserDispatchContext = createContext();
@@ -20,6 +20,14 @@ export const userReducer = (state, { type, data }) => {
     }
 
     case "SET_ARE_LIGHTS_OFF": {
+      window.localStorage.setItem("areLightsOff", data);
+
+      if (!data) {
+        document.body.classList.remove("lightsoff");
+      } else {
+        document.body.classList.add("lightsoff");
+      }
+
       return { ...state, areLightsOff: data };
     }
 
@@ -31,6 +39,20 @@ export const userReducer = (state, { type, data }) => {
 
 export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
+
+  const checkTheme = () => {
+    const { areLightsOff } = window.localStorage;
+
+    if (!!areLightsOff && areLightsOff === "true") {
+      dispatch({ type: "SET_ARE_LIGHTS_OFF", data: true });
+    } else {
+      dispatch({ type: "SET_ARE_LIGHTS_OFF", data: false });
+    }
+  };
+
+  useEffect(() => {
+    checkTheme();
+  }, []);
 
   return (
     <UserContext.Provider value={state}>

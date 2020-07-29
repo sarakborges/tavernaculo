@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Social from "Components/Social";
 
 import { UserContext } from "Contexts/User";
+import { SocialProvider } from "Contexts/Social";
 
 import "./style.scss";
 
@@ -11,7 +12,9 @@ const Rightbar = () => {
 
   return (
     <div id="rightbar" className={!isRightBarExpanded ? "sidebar_hidden" : ""}>
-      <Social />
+      <SocialProvider>
+        <Social />
+      </SocialProvider>
     </div>
   );
 };

@@ -2,18 +2,26 @@ import React from "react";
 
 import "./style.scss";
 
-const Button = ({ type, classes = [], children, onClick, round }) => {
-  classes.push("button");
+const Button = ({ children, options }) => {
+  let classes = ["button"];
 
-  if (!!round) {
+  if (!!options?.classes) {
+    classes = classes.concat(options?.classes);
+  }
+
+  if (!!options?.round) {
     classes.push("round");
+  }
+
+  if (!!options?.transparent) {
+    classes.push("transparent");
   }
 
   return (
     <button
-      type={type || "button"}
+      type={options?.type || "button"}
       className={classes.join(" ")}
-      onClick={onClick}
+      onClick={options?.onClick}
     >
       {children}
     </button>
