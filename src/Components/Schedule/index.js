@@ -23,16 +23,14 @@ const Schedule = () => {
 
   const schedule = [];
 
-  for (let j = 0; j < 2; j++) {
-    for (let i = 0; i < 7; i++) {
-      schedule.push({
-        id: `${j}-${i}`,
-        avatar: `https://i.pinimg.com/originals/07/82/ea/0782eab69709d1f48eff6e0d62c0994b.jpg`,
-        name: `A CONQUISTA`,
-        weekDay: i,
-        time: `19:00`,
-      });
-    }
+  for (let i = 0; i < 14; i++) {
+    schedule.push({
+      id: i,
+      avatar: `https://i.pinimg.com/originals/07/82/ea/0782eab69709d1f48eff6e0d62c0994b.jpg`,
+      name: `A CONQUISTA`,
+      date: `2020-07-${10 + i}`,
+      time: `19:00`,
+    });
   }
 
   const weekDays = [
@@ -85,8 +83,21 @@ const Schedule = () => {
 
     weekArr.forEach((weekItem, weekItemKey) => {
       schedule.forEach((scheduleItem) => {
-        if (scheduleItem.weekDay === weekItem.index) {
-          weekArr[weekItemKey].events.push(scheduleItem);
+        const date = new Date(scheduleItem.date);
+        const weekDay = date.getDay();
+
+        if (weekDay === weekItem.index) {
+          weekArr[weekItemKey].events.push({ ...scheduleItem, weekDay });
+        }
+      });
+
+      weekItem.events.sort((a, b) => {
+        if (a.date > b.date) {
+          return 1;
+        } else if (b.date > a.date) {
+          return -1;
+        } else {
+          return 0;
         }
       });
     });
@@ -104,6 +115,8 @@ const Schedule = () => {
     true,
   ]);
   const week = orderWeek();
+
+  console.log(week);
 
   return (
     <div id="schedule">

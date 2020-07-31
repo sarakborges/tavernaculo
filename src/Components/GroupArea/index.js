@@ -46,7 +46,7 @@ const GroupArea = ({ group }) => {
       <div className="group-text">
         <div className="group-name">{group.name}</div>
         <div className="group-time">
-          {weekDays[group.weekDay].name}, às {group.time}
+          {group.date.split("-").reverse().join("/")} - {group.time}
         </div>
       </div>
 
