@@ -67,7 +67,7 @@ const SocialMenu = () => {
 
       {activeMenu !== "chat" && (
         <div className="social-find">
-          <Input placeholder="Encontre pessoas ou grupos" />
+          <Input options={{ placeholder: "Encontre pessoas ou grupos" }} />
         </div>
       )}
     </>

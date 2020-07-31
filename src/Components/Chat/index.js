@@ -68,7 +68,7 @@ const Chat = () => {
       </ul>
 
       <div className="chat-send-message">
-        <Input placeholder="Digite sua mensagem" />
+        <Input options={{ placeholder: `Converse com ${user.name}` }} />
       </div>
     </div>
   );

@@ -1,0 +1,52 @@
+@import "src/shared/style.scss";
+
+.social-groups {
+  padding: 10px 0 20px;
+
+  .groups-list {
+    max-height: calc(100vh - 195px);
+    overflow: auto;
+    scrollbar-width: thin;
+
+    padding: 0 10px;
+
+    .group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 10px 0;
+
+      opacity: 0.5;
+      cursor: pointer;
+
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .group-avatar {
+        width: 44px;
+        height: 44px;
+
+        background-position: center;
+        background-size: cover;
+        border-radius: 100%;
+      }
+
+      .group-name {
+        width: calc(100% - 44px - 60px);
+        padding: 0 10px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .group-view {
+        font-size: 12px;
+      }
+    }
+  }
+}

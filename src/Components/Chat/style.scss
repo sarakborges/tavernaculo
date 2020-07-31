@@ -6,6 +6,11 @@
 
   height: calc(100vh - 140px);
 
+  .user-space {
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+
   .chat-separator {
     height: 1px;
     margin: 0 10px 15px;

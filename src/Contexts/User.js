@@ -7,6 +7,11 @@ const INITIAL_STATE = {
   isLeftBarExpanded: true,
   isRightBarExpanded: true,
   areLightsOff: false,
+  user: {
+    id: 1,
+    name: `Yogg'Sara`,
+    avatar: `https://cdn.discordapp.com/attachments/705087703200432219/714868759596367932/nidalee.png`,
+  },
 };
 
 export const userReducer = (state, { type, data }) => {

@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 
 import Icon from "Components/Icon";
 import SocialMenu from "Components/SocialMenu";
-import LatestMessages from "Components/LatestMessages";
+import SocialLatestMessages from "Components/SocialLatestMessages";
 import Chat from "Components/Chat";
+import SocialContactsList from "Components/SocialContactsList";
+import SocialGroupsList from "Components/SocialGroupsList";
+import SocialFeed from "Components/SocialFeed";
 
 import { UserContext, UserDispatchContext } from "Contexts/User";
 import { SocialContext } from "Contexts/Social";
@@ -53,8 +56,11 @@ const Social = () => {
         <div className="social">
           <SocialMenu />
 
-          {activeMenu === "latest" && <LatestMessages />}
+          {activeMenu === "latest" && <SocialLatestMessages />}
           {activeMenu === "chat" && <Chat />}
+          {activeMenu === "contacts" && <SocialContactsList />}
+          {activeMenu === "groups" && <SocialGroupsList />}
+          {activeMenu === "feed" && <SocialFeed />}
         </div>
       )}
     </div>

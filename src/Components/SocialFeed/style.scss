@@ -1,0 +1,132 @@
+@import "src/shared/style.scss";
+
+.social-feed {
+  max-height: calc(100vh - 207px);
+  margin-top: 20px;
+
+  overflow: auto;
+
+  scrollbar-width: thin;
+
+  .feed-item {
+    &:not(:first-of-type) {
+      padding-top: 10px;
+    }
+
+    &:not(:last-of-type) {
+      .feed-item-commentaries {
+        padding-bottom: 20px;
+      }
+    }
+
+    .user-space {
+      padding-bottom: 15px;
+    }
+
+    .feed-separator {
+      height: 1px;
+      margin: 0 10px 15px;
+
+      background: $light;
+    }
+
+    .feed-details {
+      padding: 0 10px;
+
+      .feed-item-actions {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        padding-top: 15px;
+
+        .feed-item-button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          padding: 3px 5px;
+
+          border-radius: 8px;
+
+          color: $maincolor;
+
+          &:not(:first-of-type) {
+            margin-left: 10px;
+          }
+
+          &.feed-item-likes {
+            &.action-done {
+              background: $maincolor;
+              color: inherit;
+            }
+          }
+
+          span {
+            padding-left: 3px;
+            padding-right: 5px;
+          }
+        }
+      }
+
+      .feed-item-image {
+        img {
+          max-height: 70vh;
+
+          border-radius: 15px;
+        }
+      }
+
+      .feed-item-commentaries {
+        padding-top: 15px;
+
+        .feed-item-commentaries-list {
+          padding-bottom: 15px;
+
+          .feed-item-commentary {
+            padding-top: 10px;
+            color: $gray;
+          }
+        }
+
+        .feed-item-commentary {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .feed-item-avatar {
+            width: 25px;
+            height: 25px;
+
+            border-radius: 100%;
+
+            background-size: cover;
+            background-position: center;
+          }
+
+          .feed-item-message {
+            width: calc(100% - 45px - 25px);
+            padding-left: 10px;
+          }
+
+          .feed-item-time {
+            width: 45px;
+
+            font-size: 12px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+.lightsoff {
+  .social-feed {
+    .feed-item {
+      .feed-separator {
+        background: $dark;
+      }
+    }
+  }
+}

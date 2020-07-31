@@ -1,23 +1,17 @@
 import React, { useContext } from "react";
 
+import { UserContext } from "Contexts/User";
+
 import Button from "Components/Button";
 import Icon from "Components/Icon";
 import UserArea from "Components/UserArea";
 import Schedule from "Components/Schedule";
 import ToggleTheme from "Components/ToggleTheme";
 
-import { UserContext } from "Contexts/User";
-
 import "./style.scss";
 
 const Leftbar = () => {
-  const { isLeftBarExpanded } = useContext(UserContext);
-
-  const user = {
-    id: 1,
-    name: `Yogg'Sara`,
-    avatar: `https://cdn.discordapp.com/attachments/705087703200432219/714868759596367932/nidalee.png`,
-  };
+  const { isLeftBarExpanded, user } = useContext(UserContext);
 
   return (
     <div id="leftbar" className={!isLeftBarExpanded ? "sidebar_hidden" : ""}>

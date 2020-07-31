@@ -1,0 +1,52 @@
+@import "src/shared/style.scss";
+
+.social-contacts {
+  padding: 10px 0 20px;
+
+  .contacts-list {
+    max-height: calc(100vh - 195px);
+    overflow: auto;
+    scrollbar-width: thin;
+
+    padding: 0 10px;
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 10px 0;
+
+      opacity: 0.5;
+      cursor: pointer;
+
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      .contact-avatar {
+        width: 44px;
+        height: 44px;
+
+        background-position: center;
+        background-size: cover;
+        border-radius: 100%;
+      }
+
+      .contact-name {
+        width: calc(100% - 44px - 60px);
+        padding: 0 10px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .contact-view {
+        font-size: 12px;
+      }
+    }
+  }
+}

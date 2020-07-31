@@ -4,7 +4,7 @@ import "./style.scss";
 
 import { SocialDispatchContext } from "Contexts/Social";
 
-const LatestMessages = () => {
+const SocialLatestMessages = () => {
   const socialReducer = useContext(SocialDispatchContext);
 
   const messages = [];
@@ -62,4 +62,4 @@ const LatestMessages = () => {
   );
 };
 
-export default LatestMessages;
+export default SocialLatestMessages;

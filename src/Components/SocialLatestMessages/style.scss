@@ -30,7 +30,6 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      box-shadow: 0 0 2px 2px rgba($black, 0.2);
 
       border-radius: 100%;
     }
@@ -91,10 +90,6 @@
 .lightsoff {
   .latest-messages {
     .message-item {
-      .message-avatar {
-        box-shadow: 0 0 2px 2px rgba($white, 0.4);
-      }
-
       .message-info {
         .message-body {
           .message-text {
