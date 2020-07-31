@@ -1,13 +1,13 @@
 @import "src/shared/style.scss";
 
-.user-space {
+.group-space {
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 0 5px 0 10px;
 
-  .user-avatar {
+  .group-avatar {
     width: 44px;
     height: 44px;
 
@@ -17,11 +17,11 @@
     border-radius: 100%;
   }
 
-  .user-text {
+  .group-text {
     width: calc(100% - 44px - #{$smalliconsize});
     padding: 0 15px;
 
-    .user-name {
+    .group-name {
       width: 100%;
       overflow: hidden;
 
@@ -31,21 +31,25 @@
       white-space: nowrap;
     }
 
-    .user-link {
+    .group-time {
+      color: $gray;
+    }
+
+    .group-link {
       a {
         font-size: 12px;
       }
     }
   }
 
-  .user-more {
+  .group-more {
     width: $smalliconsize;
   }
 }
 
 .lightsoff {
-  .user-space {
-    .user-avatar {
+  .group-space {
+    .group-avatar {
       background-color: $darkner;
     }
   }

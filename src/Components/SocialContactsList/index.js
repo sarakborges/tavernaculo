@@ -1,5 +1,7 @@
 import React from "react";
 
+import Icon from "Components/Icon";
+
 import "./style.scss";
 
 const SocialContactsList = () => {
@@ -27,11 +29,18 @@ const SocialContactsList = () => {
                 style={{ backgroundImage: `url(${contactItem.avatar})` }}
               />
 
-              <div className="contact-name">{contactItem.name}</div>
+              <div className="contact-text">
+                <div className="contact-name">{contactItem.name}</div>
 
-              <a href="#" className="contact-view">
-                Ver grupo
-              </a>
+                <a href="#" className="contact-view">
+                  Ver perfil
+                </a>
+              </div>
+
+              <Icon
+                value="more_vert"
+                options={{ as: "button", small: true, transparent: true }}
+              />
             </li>
           );
         })}

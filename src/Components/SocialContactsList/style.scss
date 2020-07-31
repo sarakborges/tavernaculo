@@ -35,17 +35,16 @@
         border-radius: 100%;
       }
 
-      .contact-name {
+      .contact-text {
         width: calc(100% - 44px - 60px);
-        padding: 0 10px;
 
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-      }
 
-      .contact-view {
-        font-size: 12px;
+        .contact-view {
+          font-size: 12px;
+        }
       }
     }
   }

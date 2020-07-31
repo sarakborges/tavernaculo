@@ -35,17 +35,16 @@
         border-radius: 100%;
       }
 
-      .group-name {
+      .group-text {
         width: calc(100% - 44px - 60px);
-        padding: 0 10px;
 
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-      }
 
-      .group-view {
-        font-size: 12px;
+        .group-view {
+          font-size: 12px;
+        }
       }
     }
   }

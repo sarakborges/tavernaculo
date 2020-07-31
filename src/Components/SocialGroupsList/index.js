@@ -1,5 +1,7 @@
 import React from "react";
 
+import Icon from "Components/Icon";
+
 import "./style.scss";
 
 const SocialGroupsList = () => {
@@ -24,11 +26,18 @@ const SocialGroupsList = () => {
                 style={{ backgroundImage: `url(${groupItem.avatar})` }}
               />
 
-              <div className="group-name">{groupItem.name}</div>
+              <div className="group-text">
+                <div className="group-name">{groupItem.name}</div>
 
-              <a href="#" className="group-view">
-                Ver grupo
-              </a>
+                <a href="#" className="group-view">
+                  Ver grupo
+                </a>
+              </div>
+
+              <Icon
+                value="more_vert"
+                options={{ as: "button", small: true, transparent: true }}
+              />
             </li>
           );
         })}
