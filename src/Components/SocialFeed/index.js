@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { SocialContext } from "Contexts/Social";
 
 import UserArea from "Components/UserArea";
 import Button from "Components/Button";
@@ -9,6 +11,8 @@ import "./style.scss";
 
 const SocialFeed = () => {
   const feed = [];
+
+  const { filter } = useContext(SocialContext);
 
   for (let i = 0; i < 3; i++) {
     feed.push({
@@ -51,93 +55,101 @@ const SocialFeed = () => {
       <ul className="feed-list">
         {feed.map((feedItem) => {
           return (
-            <li className="feed-item" key={`social-feed-${feedItem.id}`}>
-              <UserArea user={feedItem.user} />
+            (!filter ||
+              feedItem.user.name
+                .toLocaleLowerCase("pt-br")
+                .includes(filter.toLocaleLowerCase("pt-br")) ||
+              feedItem.message
+                .toLocaleLowerCase("pt-br")
+                .includes(filter.toLocaleLowerCase("pt-br"))) && (
+              <li className="feed-item" key={`social-feed-${feedItem.id}`}>
+                <UserArea user={feedItem.user} />
 
-              <div className="feed-separator" />
+                <div className="feed-separator" />
 
-              <div className="feed-details">
-                {!!feedItem.picture && (
-                  <div className="feed-item-image">
-                    <img src={feedItem.picture} />
-                  </div>
-                )}
+                <div className="feed-details">
+                  {!!feedItem.picture && (
+                    <div className="feed-item-image">
+                      <img src={feedItem.picture} />
+                    </div>
+                  )}
 
-                <div className="feed-item-actions">
-                  <Button
-                    options={{
-                      classes: [
-                        "feed-item-likes",
-                        "feed-item-button",
-                        feedItem.liked ? "action-done" : "",
-                      ],
-                      transparent: true,
-                    }}
-                  >
-                    <Icon value="favorite" options={{ mini: true }} />
-                    <span>17</span>
-                  </Button>
-
-                  <Button
-                    options={{
-                      classes: ["feed-item-shares", "feed-item-button"],
-                      transparent: true,
-                    }}
-                  >
-                    <Icon value="share" options={{ mini: true }} />
-                    <span>1</span>
-                  </Button>
-                </div>
-
-                <div className="feed-item-commentaries">
-                  <div className="feed-item-commentary">
-                    <div
-                      className="feed-item-avatar"
-                      style={{
-                        backgroundImage: `url(${feedItem.user.avatar})`,
+                  <div className="feed-item-actions">
+                    <Button
+                      options={{
+                        classes: [
+                          "feed-item-likes",
+                          "feed-item-button",
+                          feedItem.liked ? "action-done" : "",
+                        ],
+                        transparent: true,
                       }}
-                    />
+                    >
+                      <Icon value="favorite" options={{ mini: true }} />
+                      <span>17</span>
+                    </Button>
 
-                    <div
-                      className="feed-item-message"
-                      dangerouslySetInnerHTML={{
-                        __html: feedItem.message,
+                    <Button
+                      options={{
+                        classes: ["feed-item-shares", "feed-item-button"],
+                        transparent: true,
                       }}
-                    />
-
-                    <div className="feed-item-time">{feedItem.time}</div>
+                    >
+                      <Icon value="share" options={{ mini: true }} />
+                      <span>1</span>
+                    </Button>
                   </div>
 
-                  <ul className="feed-item-commentaries-list">
-                    {feedItem.commentaries.map((commentaryItem) => {
-                      return (
-                        <li className="feed-item-commentary">
-                          <div
-                            className="feed-item-avatar"
-                            style={{
-                              backgroundImage: `url(${commentaryItem.user.avatar})`,
-                            }}
-                          />
+                  <div className="feed-item-commentaries">
+                    <div className="feed-item-commentary">
+                      <div
+                        className="feed-item-avatar"
+                        style={{
+                          backgroundImage: `url(${feedItem.user.avatar})`,
+                        }}
+                      />
 
-                          <div
-                            className="feed-item-message"
-                            dangerouslySetInnerHTML={{
-                              __html: commentaryItem.message,
-                            }}
-                          />
+                      <div
+                        className="feed-item-message"
+                        dangerouslySetInnerHTML={{
+                          __html: feedItem.message,
+                        }}
+                      />
 
-                          <div className="feed-item-time">
-                            {commentaryItem.time}
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                      <div className="feed-item-time">{feedItem.time}</div>
+                    </div>
 
-                  <Input options={{ placeholder: "Comentar publicação" }} />
+                    <ul className="feed-item-commentaries-list">
+                      {feedItem.commentaries.map((commentaryItem) => {
+                        return (
+                          <li className="feed-item-commentary">
+                            <div
+                              className="feed-item-avatar"
+                              style={{
+                                backgroundImage: `url(${commentaryItem.user.avatar})`,
+                              }}
+                            />
+
+                            <div
+                              className="feed-item-message"
+                              dangerouslySetInnerHTML={{
+                                __html: commentaryItem.message,
+                              }}
+                            />
+
+                            <div className="feed-item-time">
+                              {commentaryItem.time}
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+
+                    <Input options={{ placeholder: "Comentar publicação" }} />
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            )
           );
         })}
       </ul>

@@ -13,6 +13,7 @@ const Input = ({ options }) => {
     <input
       placeholder={options?.placeholder || "Digite aqui"}
       className={classes.join(" ")}
+      value={options.value}
       onChange={options?.onChange}
     />
   );

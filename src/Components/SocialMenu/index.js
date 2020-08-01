@@ -8,7 +8,7 @@ import { SocialContext, SocialDispatchContext } from "Contexts/Social";
 import "./style.scss";
 
 const SocialMenu = () => {
-  const { activeMenu } = useContext(SocialContext);
+  const { activeMenu, filter } = useContext(SocialContext);
   const socialReducer = useContext(SocialDispatchContext);
 
   const menu = [
@@ -67,7 +67,15 @@ const SocialMenu = () => {
 
       {activeMenu !== "chat" && (
         <div className="social-find">
-          <Input options={{ placeholder: "Encontre pessoas ou grupos" }} />
+          <Input
+            options={{
+              placeholder: "Encontre pessoas ou grupos",
+              value: filter,
+              onChange: (e) => {
+                socialReducer({ type: "SET_FILTER", data: e.target.value });
+              },
+            }}
+          />
         </div>
       )}
     </>

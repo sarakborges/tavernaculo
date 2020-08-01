@@ -36,7 +36,8 @@
       }
 
       .contact-text {
-        width: calc(100% - 44px - 60px);
+        width: calc(100% - 44px - #{$smalliconsize});
+        padding: 0 10px;
 
         overflow: hidden;
         text-overflow: ellipsis;
