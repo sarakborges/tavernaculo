@@ -29,7 +29,7 @@ const Schedule = () => {
       avatar: `https://i.pinimg.com/originals/07/82/ea/0782eab69709d1f48eff6e0d62c0994b.jpg`,
       name: `A CONQUISTA`,
       date: `2020-07-${10 + i}`,
-      time: `19:00`,
+      time: `${10 + i}:00`,
     });
   }
 
@@ -97,7 +97,13 @@ const Schedule = () => {
         } else if (b.date > a.date) {
           return -1;
         } else {
-          return 0;
+          if (a.time > b.time) {
+            return 1;
+          } else if (b.time > a.time) {
+            return -1;
+          } else {
+            return 0;
+          }
         }
       });
     });
