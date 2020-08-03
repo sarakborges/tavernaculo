@@ -122,8 +122,6 @@ const Schedule = () => {
   ]);
   const week = orderWeek();
 
-  console.log(week);
-
   return (
     <div id="schedule">
       <div className="sidebar-title">

@@ -70,7 +70,10 @@ const SocialFeed = () => {
                 <div className="feed-details">
                   {!!feedItem.picture && (
                     <div className="feed-item-image">
-                      <img src={feedItem.picture} />
+                      <img
+                        src={feedItem.picture}
+                        alt={`Imagem postada por ${feedItem.user.name}`}
+                      />
                     </div>
                   )}
 
@@ -122,7 +125,10 @@ const SocialFeed = () => {
                     <ul className="feed-item-commentaries-list">
                       {feedItem.commentaries.map((commentaryItem) => {
                         return (
-                          <li className="feed-item-commentary">
+                          <li
+                            className="feed-item-commentary"
+                            key={`social-feed-comment-${commentaryItem.id}`}
+                          >
                             <div
                               className="feed-item-avatar"
                               style={{

@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { ROUTES } from "consts";
 
 import Icon from "Components/Icon";
 
@@ -15,7 +18,7 @@ const UserArea = ({ user }) => {
       <div className="user-text">
         <div className="user-name">{user.name}</div>
         <div className="user-link">
-          <a href="#">Ver perfil</a>
+          <Link to={ROUTES.PROFILE.replace(user.id)}>Ver perfil</Link>
         </div>
       </div>
 

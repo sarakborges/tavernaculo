@@ -1,4 +1,7 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { ROUTES } from "consts";
 
 import "./style.scss";
 
@@ -13,8 +16,11 @@ const SocialLatestMessages = () => {
   for (let i = 0; i < 15; i++) {
     messages.push({
       id: i,
-      avatar: `https://cdn.discordapp.com/attachments/705087703200432219/705088849885265938/valeera.png`,
-      name: `Runawer`,
+      user: {
+        id: 1,
+        avatar: `https://cdn.discordapp.com/attachments/705087703200432219/705088849885265938/valeera.png`,
+        name: `Runawer`,
+      },
       sender: `you`,
       message: `Olar, lindeza. Queria dizer que te achei uma lindeza.`,
       time: `2min`,
@@ -39,14 +45,21 @@ const SocialLatestMessages = () => {
               <div
                 className="message-avatar"
                 style={{
-                  backgroundImage: `url('${messageItem.avatar}')`,
+                  backgroundImage: `url('${messageItem.user.avatar}')`,
                 }}
               />
 
               <div className="message-info">
                 <div className="message-sender">
-                  <span>{messageItem.name}</span>
-                  <a href="#">Ver perfil</a>
+                  <span>{messageItem.user.name}</span>
+                  <Link
+                    to={ROUTES.PROFILE.replace(messageItem.user.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    Ver perfil
+                  </Link>
                 </div>
 
                 <div className="message-body">

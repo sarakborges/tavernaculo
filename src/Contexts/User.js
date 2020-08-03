@@ -11,6 +11,7 @@ const INITIAL_STATE = {
     id: 1,
     name: `Yogg'Sara`,
     avatar: `https://cdn.discordapp.com/attachments/705087703200432219/714868759596367932/nidalee.png`,
+    cover: `https://www.gamereactor.eu/media/97/entrevistawow_3059793b.jpg`,
   },
 };
 

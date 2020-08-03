@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { SocialContext } from "Contexts/Social";
+import { SocialContext, SocialDispatchContext } from "Contexts/Social";
 
 import Icon from "Components/Icon";
 
@@ -10,6 +10,7 @@ const SocialGroupsList = () => {
   const groups = [];
 
   const { filter } = useContext(SocialContext);
+  const socialReducer = useContext(SocialDispatchContext);
 
   for (let i = 0; i < 20; i++) {
     groups.push({
@@ -28,7 +29,13 @@ const SocialGroupsList = () => {
               groupItem.name
                 .toLocaleLowerCase("pt-br")
                 .includes(filter.toLocaleLowerCase("pt-br"))) && (
-              <li className="group-item" key={`social-groups-${groupItem.id}`}>
+              <li
+                className="group-item"
+                key={`social-groups-${groupItem.id}`}
+                onClick={() => {
+                  socialReducer({ type: "SET_ACTIVE_MENU", data: "chat" });
+                }}
+              >
                 <div
                   className="group-avatar"
                   style={{ backgroundImage: `url(${groupItem.avatar})` }}
@@ -37,7 +44,13 @@ const SocialGroupsList = () => {
                 <div className="group-text">
                   <div className="group-name">{groupItem.name}</div>
 
-                  <a href="#" className="group-view">
+                  <a
+                    href="#"
+                    className="group-view"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
                     Ver grupo
                   </a>
                 </div>

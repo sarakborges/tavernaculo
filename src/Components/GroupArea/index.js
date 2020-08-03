@@ -5,37 +5,6 @@ import Icon from "Components/Icon";
 import "./style.scss";
 
 const GroupArea = ({ group }) => {
-  const weekDays = [
-    {
-      index: 0,
-      name: "Segunda",
-    },
-    {
-      index: 1,
-      name: "Terça",
-    },
-    {
-      index: 2,
-      name: "Quarta",
-    },
-    {
-      index: 3,
-      name: "Quinta",
-    },
-    {
-      index: 4,
-      name: "Sexta",
-    },
-    {
-      index: 5,
-      name: "Sábado",
-    },
-    {
-      index: 6,
-      name: "Domingo",
-    },
-  ];
-
   return (
     <div className="group-space">
       <div

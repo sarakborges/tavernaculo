@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import { SocialContext } from "Contexts/Social";
+import { ROUTES } from "consts";
+
+import { SocialContext, SocialDispatchContext } from "Contexts/Social";
 
 import Icon from "Components/Icon";
 
@@ -10,6 +13,7 @@ const SocialContactsList = () => {
   const contacts = [];
 
   const { filter } = useContext(SocialContext);
+  const socialReducer = useContext(SocialDispatchContext);
 
   for (let i = 0; i < 20; i++) {
     contacts.push({
@@ -31,6 +35,9 @@ const SocialContactsList = () => {
               <li
                 className="contact-item"
                 key={`social-contacts-${contactItem.id}`}
+                onClick={() => {
+                  socialReducer({ type: "SET_ACTIVE_MENU", data: "chat" });
+                }}
               >
                 <div
                   className="contact-avatar"
@@ -40,9 +47,15 @@ const SocialContactsList = () => {
                 <div className="contact-text">
                   <div className="contact-name">{contactItem.name}</div>
 
-                  <a href="#" className="contact-view">
+                  <Link
+                    to={ROUTES.PROFILE.replace(contactItem.id)}
+                    className="contact-view"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
                     Ver perfil
-                  </a>
+                  </Link>
                 </div>
 
                 <Icon
