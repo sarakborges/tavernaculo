@@ -19,6 +19,10 @@ const Icon = ({ value, options }) => {
     classes.push("mini");
   }
 
+  if (!!options?.round) {
+    classes.push("icon-round");
+  }
+
   return (
     <>
       {(!options?.as || options?.as === "div") && (

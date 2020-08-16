@@ -13,7 +13,6 @@
 
     background-position: center;
     background-size: cover;
-    background-color: $lightner;
     border-radius: 100%;
   }
 
@@ -44,13 +43,5 @@
 
   .group-more {
     width: $smalliconsize;
-  }
-}
-
-.lightsoff {
-  .group-space {
-    .group-avatar {
-      background-color: $darkner;
-    }
   }
 }

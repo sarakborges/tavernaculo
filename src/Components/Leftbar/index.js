@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { UserContext } from "Contexts/User";
 
 import Button from "Components/Button";
-import Icon from "Components/Icon";
 import UserArea from "Components/UserArea";
 import Schedule from "Components/Schedule";
 import ToggleTheme from "Components/ToggleTheme";
@@ -18,10 +17,15 @@ const Leftbar = () => {
       <div className="sidebar-top">
         <UserArea user={user} />
 
-        <Button options={{ round: true, classes: ["new-group"] }}>
-          <Icon value="add" options={{ small: true }} />
-          <span>Criar novo grupo</span>
-          <span></span>
+        <Button
+          options={{
+            colorful: true,
+            round: true,
+            icon: "add",
+            classes: ["new-group", "active"],
+          }}
+        >
+          Criar novo grupo
         </Button>
 
         <Schedule />

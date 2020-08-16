@@ -12,14 +12,7 @@
       width: 35px;
       height: 35px;
 
-      color: $maincolor;
-
       border-radius: 100%;
-
-      &.active {
-        background: $maincolor;
-        color: inherit;
-      }
     }
   }
 
@@ -40,7 +33,6 @@
 
         text-transform: uppercase;
         font-weight: 700;
-        color: $gray;
       }
 
       .event-item {

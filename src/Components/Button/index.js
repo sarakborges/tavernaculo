@@ -1,5 +1,7 @@
 import React from "react";
 
+import Icon from "Components/Icon";
+
 import "./style.scss";
 
 const Button = ({ children, options }) => {
@@ -17,14 +19,38 @@ const Button = ({ children, options }) => {
     classes.push("transparent");
   }
 
+  if (!!options?.colorful) {
+    classes.push("colorful");
+  }
+
+  if (!!options?.icon) {
+    classes.push("icon-button");
+  }
+
   return (
-    <button
-      type={options?.type || "button"}
-      className={classes.join(" ")}
-      onClick={options?.onClick}
-    >
-      {children}
-    </button>
+    <>
+      {!options?.icon && (
+        <button
+          type={options?.type || "button"}
+          className={classes.join(" ")}
+          onClick={options?.onClick}
+        >
+          {children}
+        </button>
+      )}
+
+      {!!options?.icon && (
+        <button
+          type={options?.type || "button"}
+          className={classes.join(" ")}
+          onClick={options?.onClick}
+        >
+          <Icon value={options?.icon} options={{ small: true }} />
+          <span className="button-text">{children}</span>
+          <span></span>
+        </button>
+      )}
+    </>
   );
 };
 

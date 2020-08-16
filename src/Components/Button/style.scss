@@ -11,23 +11,44 @@
   padding: 0;
   margin: 0;
 
-  color: $black;
+  color: inherit;
 
   cursor: pointer;
 
-  &.transparent {
-    transition: background-color 0.3s;
+  &.colorful {
+    background: $maincolor;
+    color: $white;
 
-    &:hover {
+    transition: color 0.3s, background-color 0.3s;
+
+    &:not(.active) {
       background: rgba($gray, 0.2);
+
+      color: $maincolor;
+    }
+  }
+
+  &.transparent {
+    &:not(.colorful) {
+      transition: background-color 0.3s;
+
+      &:hover {
+        background: rgba($gray, 0.2);
+      }
     }
   }
 
   &:not(.transparent) {
-    transition: box-shadow 0.3s;
+    &:not(.colorful) {
+      transition: box-shadow 0.3s;
+    }
+
+    &.colorful {
+      transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
 
     &:hover {
-      box-shadow: 0 0 2px 2px rgba($black, 0.2);
+      box-shadow: 0 0 5px 1px $maincolor;
     }
   }
 
@@ -36,14 +57,35 @@
 
     border-radius: 20px;
   }
+
+  &.icon-button {
+    width: auto;
+    padding: 5px;
+
+    justify-content: space-between;
+
+    background: $maincolor;
+
+    .icon {
+      border-radius: 100%;
+
+      background: rgba($black, 0.125);
+
+      font-size: $iconsize * 0.5 * 0.8;
+    }
+
+    .button-text {
+      padding: 0 20px;
+    }
+  }
 }
 
 .lightsoff {
   .button {
-    color: $white;
-
-    &:not(.transparent):hover {
-      box-shadow: 0 0 2px 2px rgba($white, 0.2);
+    &.icon-button {
+      .icon {
+        background: rgba($white, 0.25);
+      }
     }
   }
 }

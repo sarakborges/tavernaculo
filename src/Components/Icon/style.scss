@@ -10,7 +10,12 @@
   font-size: $iconsize * 0.8;
   line-height: $iconsize;
 
-  border-radius: 3px;
+  border-radius: 8px;
+
+  &.icon-round {
+    border-radius: 100%;
+    background: $maincolor;
+  }
 
   &.small {
     width: $iconsize * 0.75;

@@ -2,15 +2,28 @@ import React, { useState, useContext } from "react";
 
 import { UserContext, UserDispatchContext } from "Contexts/User";
 
+import { weekDays } from "consts";
+
 import Icon from "Components/Icon";
 import Button from "Components/Button";
 import GroupArea from "Components/GroupArea";
 
 import "./style.scss";
+import { useEffect } from "react";
 
 const Schedule = () => {
   const { isLeftBarExpanded } = useContext(UserContext);
   const userReducer = useContext(UserDispatchContext);
+  const [week, setWeek] = useState([]);
+  const [selectedDay, setSelectedDay] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
 
   let today = new Date();
   today = new Date(
@@ -22,7 +35,6 @@ const Schedule = () => {
   today = today.getDay();
 
   const schedule = [];
-
   for (let i = 0; i < 14; i++) {
     schedule.push({
       id: i,
@@ -32,44 +44,6 @@ const Schedule = () => {
       time: `${10 + i}:00`,
     });
   }
-
-  const weekDays = [
-    {
-      index: 0,
-      name: "Segunda",
-      events: [],
-    },
-    {
-      index: 1,
-      name: "Terça",
-      events: [],
-    },
-    {
-      index: 2,
-      name: "Quarta",
-      events: [],
-    },
-    {
-      index: 3,
-      name: "Quinta",
-      events: [],
-    },
-    {
-      index: 4,
-      name: "Sexta",
-      events: [],
-    },
-    {
-      index: 5,
-      name: "Sábado",
-      events: [],
-    },
-    {
-      index: 6,
-      name: "Domingo",
-      events: [],
-    },
-  ];
 
   const orderWeek = () => {
     const weekArr = [];
@@ -111,16 +85,9 @@ const Schedule = () => {
     return weekArr;
   };
 
-  const [selectedDay, setSelectedDay] = useState([
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ]);
-  const week = orderWeek();
+  useEffect(() => {
+    setWeek(() => orderWeek());
+  }, []);
 
   return (
     <div id="schedule">
@@ -161,7 +128,7 @@ const Schedule = () => {
             <Button
               key={`schedule-week-item-${weekItem.index}`}
               options={{
-                transparent: true,
+                colorful: true,
                 classes: [
                   "schedule-week-item",
                   !!selectedDay[weekItem.index] ? "active" : "",

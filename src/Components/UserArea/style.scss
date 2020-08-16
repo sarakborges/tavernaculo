@@ -13,7 +13,6 @@
 
     background-position: center;
     background-size: cover;
-    background-color: $lightner;
     border-radius: 100%;
   }
 
@@ -40,13 +39,5 @@
 
   .user-more {
     width: $smalliconsize;
-  }
-}
-
-.lightsoff {
-  .user-space {
-    .user-avatar {
-      background-color: $darkner;
-    }
   }
 }

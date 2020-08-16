@@ -12,33 +12,9 @@
     height: 50px;
 
     border-radius: 100%;
-    background: rgba($gray, 0.1);
-
-    color: $maincolor;
-
-    transition: background-color 0.3s, box-shadow 0.3s;
-
-    &.active {
-      background: $maincolor;
-      color: $black;
-
-      &:hover {
-        box-shadow: none;
-      }
-    }
   }
 }
 
 .social-find {
   padding: 0 10px;
-}
-
-.lightsoff {
-  .social-menu {
-    .social-menu-button {
-      &.active {
-        color: $white;
-      }
-    }
-  }
 }

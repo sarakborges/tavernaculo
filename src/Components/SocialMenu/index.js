@@ -53,6 +53,7 @@ const SocialMenu = () => {
                   as: "button",
                   classes: [
                     "social-menu-button",
+                    "colorful",
                     activeMenu === item.name ? "active" : "",
                   ],
                   onClick: () => {

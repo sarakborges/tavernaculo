@@ -5,10 +5,12 @@ import { ROUTES } from "consts";
 
 import { UserProvider } from "Contexts/User";
 
-import Profile from "Containers/Profile";
-import Error from "Containers/Error";
 import Leftbar from "Components/Leftbar";
 import Rightbar from "Components/Rightbar";
+
+import Profile from "Containers/Profile";
+import Group from "Containers/Group";
+import Error from "Containers/Error";
 
 const Routes = () => {
   return (
@@ -20,6 +22,7 @@ const Routes = () => {
         <div className="app-content">
           <Switch>
             <Route path={ROUTES.PROFILE.url} component={Profile} exact />
+            <Route path={ROUTES.GROUP.url} component={Group} exact />
             <Route path="*" component={Error} />
           </Switch>
         </div>

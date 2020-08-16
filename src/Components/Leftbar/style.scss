@@ -39,19 +39,7 @@
   }
 
   .new-group {
-    width: calc(100% - 120px);
     margin: 5px auto 15px;
-    padding: 5px;
-
-    justify-content: space-between;
-
-    background: $maincolor;
-
-    .icon {
-      border-radius: 100%;
-
-      background: rgba($black, 0.125);
-    }
   }
 
   .sidebar-top {
@@ -80,11 +68,5 @@
 .lightsoff {
   #leftbar {
     background: $darker;
-
-    .new-group {
-      .icon {
-        background: rgba($white, 0.25);
-      }
-    }
   }
 }
